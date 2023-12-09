@@ -10,7 +10,7 @@ const Product = () => {
     return (
         <div>
            <ProductCard/>
-           {modal && <Modal title = {"Ürün oluştur."} btnText = {"Oluştur"} btnFunc = {buttonFunc} />} 
+           {modal && <Modal title = {"Ürün oluştur"} btnText = {"Oluştur"} btnFunc = {buttonFunc} />} 
         </div>
 
         )
