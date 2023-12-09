@@ -2,6 +2,7 @@ import React from "react";
 import { IoMdClose } from "react-icons/io";
 import Input from "./Input";
 import { useState } from "react";
+import Button from "./Button";
 
 const Modal = ({title, content, btnText, btnFunc}) => {
     const [productInfo, setProductInfo] = useState({name: "",price:"", url:""})
@@ -24,7 +25,7 @@ const Modal = ({title, content, btnText, btnFunc}) => {
                 <Input type={"text"} placeholder={"Ürün ekle"}  name={"name"}  id={"name"}  onChange={e=> onChangeFunc(e,"name")}    />
                 <Input type={"text"} placeholder={"Fiyat ekle"} name={"price"} id={"price"} onChange={e=> onChangeFunc(e,"price")}    />
                 <Input type={"file"} placeholder={"Resim seç"}  name={"url"}   id={"url"}   onChange={e=> onChangeFunc(e,"file")}    />
-
+                <Button btnText={btnText} onClick={btnFunc} />
             </div>
         </div>
     )
