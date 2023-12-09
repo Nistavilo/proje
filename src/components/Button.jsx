@@ -3,7 +3,7 @@ import React from "react";
 
 const Button = ({onClick, btnText}) => {
     return(
-        <button oncClick ={ onClick} > {btnText} </button>
+        <button className="w-full h-10 bg-indigo-600 text-white flex items-center justify-center mt-4 rounded-md border border-indigo-600" oncClick ={ onClick} > {btnText} </button>
         )
 }
 
