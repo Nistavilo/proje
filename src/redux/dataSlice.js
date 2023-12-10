@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-
+import { useState } from 'react'
 const initialState = {
   data: [],
 }
@@ -9,13 +9,13 @@ export const dataSlice = createSlice({
   initialState,
   reducers: {
     createDataFunc: (state,action) => {
-      state.value += action.payload
+      state.value = [...state.data, action.payload]
     }
 
 },
 })
 
 // Action creators are generated for each case reducer function
-export const {  } = dataSlice.actions
+export const { createDataFunc } = dataSlice.actions
 
 export default dataSlice.reducer

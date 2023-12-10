@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Modal from "../components/Modal";
 import Button from "../components/Button";
 import Input from "../components/Input"
+import { createDataFunc } from "../redux/dataSlice";
+import { useState } from 'react'
 
 const Product = () => {    
     const {modal}= useSelector( state=> state.modal)
@@ -18,7 +20,7 @@ const Product = () => {
     }
     console.log(modal,"modal")
     const buttonFunc = () =>{
-        dispatch()
+        dispatch(createDataFunc())
     }
     const contentModal = (
         <>
