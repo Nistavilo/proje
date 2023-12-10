@@ -8,6 +8,7 @@ import { createDataFunc } from "../redux/dataSlice";
 import { useState } from 'react'
 import { modalFunc } from "../redux/modalSlice";
 
+
 const Product = () => {    
     const {modal}= useSelector( state=> state.modal)
     const {data}=  useSelector( state=> state.data ) 
@@ -36,7 +37,14 @@ const Product = () => {
     )
     return (
         <div>
-           <ProductCard/>
+            <div>
+                {
+                    data?.map((dt,i) => (
+                        <ProductCard key = {i} dt={dt} />
+                    ))
+                }
+            </div>
+           
            {modal && <Modal content={contentModal} title = {"Ürün oluştur"}  />} 
         </div>
 
