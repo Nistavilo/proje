@@ -6,10 +6,13 @@ import Button from "../components/Button";
 import Input from "../components/Input"
 import { createDataFunc } from "../redux/dataSlice";
 import { useState } from 'react'
+import { modalFunc } from "../redux/modalSlice";
 
 const Product = () => {    
     const {modal}= useSelector( state=> state.modal)
-    const dispatch =  useDispatch
+    const {data}=  useSelector( state=> state.data ) 
+
+    const dispatch =  useDispatch()
     const [productInfo, setProductInfo] = useState({name: "",price:"", url:""})
     const onChangeFunc = (e,type) => {
         if(type == "url"){
@@ -18,9 +21,10 @@ const Product = () => {
             setProductInfo(prev => ({...prev, [e.target.name]: e.target.value}))
          }
     }
-    console.log(modal,"modal")
+    console.log(data,"data")
     const buttonFunc = () =>{
-        dispatch(createDataFunc())
+        dispatch(createDataFunc(productInfo))
+        dispatch(modalFunc())
     }
     const contentModal = (
         <>
