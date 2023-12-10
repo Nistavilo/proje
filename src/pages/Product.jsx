@@ -1,12 +1,13 @@
 import React from "react";
 import ProductCard from "../components/ProductCard";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Modal from "../components/Modal";
 import Button from "../components/Button";
 import Input from "../components/Input"
 
 const Product = () => {    
     const {modal}= useSelector( state=> state.modal)
+    const dispatch =  useDispatch
     const [productInfo, setProductInfo] = useState({name: "",price:"", url:""})
     const onChangeFunc = (e,type) => {
         if(type == "url"){
@@ -16,7 +17,9 @@ const Product = () => {
          }
     }
     console.log(modal,"modal")
-    const buttonFunc = () =>{}
+    const buttonFunc = () =>{
+        dispatch()
+    }
     const contentModal = (
         <>
             <Input type={"text"} placeholder={"Ürün ekle"}  name={"name"}  id={"name"}  onChange={e=> onChangeFunc(e,"name")}    />
@@ -28,7 +31,7 @@ const Product = () => {
     return (
         <div>
            <ProductCard/>
-           {modal && <Modal content={contentModal} title = {"Ürün oluştur"} />} 
+           {modal && <Modal content={contentModal} title = {"Ürün oluştur"}  />} 
         </div>
 
         )
